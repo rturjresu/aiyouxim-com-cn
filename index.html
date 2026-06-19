@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 资料索引 · 游戏文化笔记</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #f7f3eb;
+            font-family: "Noto Serif SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 252, 246, 0.7);
+            padding: 2.2rem 1.8rem;
+            border-radius: 24px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+            backdrop-filter: blur(2px);
+        }
+
+        /* 首页横幅 — 杂志题头感 */
+        .hero {
+            border-bottom: 1px solid #d6cebf;
+            padding-bottom: 1.8rem;
+            margin-bottom: 2.4rem;
+            text-align: center;
+        }
+
+        .hero .emblem {
+            font-size: 1.1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #8b7e6b;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            font-family: "Inter", "Helvetica Neue", sans-serif;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: #3f392f;
+            margin: 0.2rem 0 0.3rem;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            color: #7d7161;
+            font-size: 0.95rem;
+            border-top: 1px solid #ddd5c7;
+            padding-top: 0.8rem;
+            display: inline-block;
+            font-style: italic;
+        }
+
+        /* 背景说明 — 像杂志编者按 */
+        .intro-background {
+            background: #ede7dd;
+            padding: 1.6rem 1.8rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            font-size: 0.98rem;
+            border-left: 4px solid #b3a48b;
+        }
+
+        .intro-background strong {
+            color: #4d4235;
+            font-weight: 600;
+        }
+
+        .intro-background .source-hint {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #6e6455;
+            border-top: 1px dashed #cbbca9;
+            padding-top: 0.8rem;
+        }
+
+        /* 三段自然介绍 - 文章排版 */
+        .essay p {
+            margin-bottom: 1.5rem;
+            text-indent: 2em;
+            font-size: 1.05rem;
+        }
+
+        .essay p:first-of-type {
+            margin-top: 0;
+        }
+
+        .essay .pull-quote {
+            text-indent: 0;
+            background: #f3ede4;
+            padding: 1.2rem 1.6rem;
+            border-radius: 36px 12px 36px 12px;
+            font-style: italic;
+            color: #4a4035;
+            margin: 1.8rem 0 2rem;
+            border: 1px solid #ddd3c2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .essay .pull-quote::before {
+            content: "⏺ ";
+            font-style: normal;
+            opacity: 0.5;
+            margin-right: 6px;
+        }
+
+        /* 引用块 / 提示框 - 杂志旁注风格 */
+        .sidebar-note {
+            background: #f0eadf;
+            border-radius: 30px 8px 30px 8px;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0 1.6rem;
+            font-size: 0.95rem;
+            border: 1px solid #d8cebd;
+            box-shadow: inset 0 0 0 1px rgba(255, 250, 240, 0.8);
+            color: #3d352b;
+        }
+
+        .sidebar-note .label {
+            font-family: "Inter", sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #8b7b64;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .sidebar-note a {
+            color: #6b5e4b;
+            text-decoration: underline wavy #b9aa93 1px;
+            text-underline-offset: 3px;
+        }
+
+        .sidebar-note a:hover {
+            background: #d4caba;
+            text-decoration: none;
+            padding: 0 4px;
+        }
+
+        /* 页尾访问提示 */
+        .footer-visit {
+            margin-top: 3rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #d6cebf;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #6b5f4f;
+        }
+
+        .footer-visit .visit-line {
+            display: inline-block;
+            background: #e1d9cb;
+            padding: 0.4rem 1.2rem 0.4rem 1.6rem;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            font-style: normal;
+        }
+
+        .footer-visit a {
+            color: #3d352b;
+            text-decoration: none;
+            border-bottom: 1px solid #b3a48b;
+            font-weight: 500;
+        }
+
+        .footer-visit a:hover {
+            border-bottom: 2px solid #675b48;
+        }
+
+        .footer-meta {
+            margin-top: 0.8rem;
+            font-size: 0.75rem;
+            color: #9c8f7b;
+            text-align: left;
+            letter-spacing: 1px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.8rem; }
+            .page { padding: 1.5rem 1rem; }
+            .hero h1 { font-size: 2.5rem; letter-spacing: 4px; }
+            .essay p { font-size: 0.98rem; }
+            .intro-background { padding: 1.2rem; }
+            .sidebar-note { padding: 1rem; }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .emblem { font-size: 0.9rem; letter-spacing: 4px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 首页横幅 -->
+    <div class="hero">
+        <div class="emblem">✦ 索引 · 笔记 ✦</div>
+        <h1>爱游戏</h1>
+        <div class="sub">从资料整理到文化存档</div>
+    </div>
+
+    <!-- 背景说明：类似编者按 / 关于此专题 -->
+    <div class="intro-background">
+        <strong>关于这份索引</strong> —— 游戏作为一种复合媒介，其周边信息往往散落在论坛、采访、开发日志与版本注释里。<br>
+        本页尝试以资料整理者的视角，将零散片段汇聚为一册轻量的阅读线索，不预设结论，只提供路径。<br>
+        <span class="source-hint">方向：杂志专题式 · 素材编号 3d5effdd6228d1cd（存档标记）</span>
+    </div>
+
+    <!-- 三段自然介绍 + 引用块部分 -->
+    <div class="essay">
+
+        <p>
+            从早期像素游戏的关卡蓝图，到当代开放世界中的叙事碎片，游戏设计文档始终是理解作品内核的暗线。许多开发团队会在内部维护一本“设计圣经”，记录数值成长曲线、地图区块的情绪节奏、以及那些最终未被采用的方案。这份被折叠的档案，往往比成品更能折射创作中的犹豫与抉择。
+        </p>
+
+        <div class="pull-quote">
+            存档即索引。每一次翻阅，都是对初始设定的重新校准。
+        </div>
+
+        <p>
+            在资料爬梳过程中，细节的归属常常令人意外。某款策略游戏的兵种相克表源自设计师大学时期的一本笔记本；某个角色的待机动作参考了二十年前的老电影胶片。这些线索像散落在不同抽屉里的卡片，需要一套轻巧的索引系统才能连缀成线。而所谓“索引”，并非仅仅指向链接，更是一种注意力编织的方式。
+        </p>
+
+        <!-- 提示框/引用块 嵌入第二段与第三段之间 -->
+        <div class="sidebar-note">
+            <span class="label">📎 资料手记</span>
+            在整理游戏文化资料时，常会遇到版本混淆、译名不统一、访谈原始出处丢失等问题。一个相对可靠的方法是：先建立时间轴，再填充上下文，最后才标注来源链接。<a href="https://aiyouxim.com.cn">爱游戏</a> 在索引结构上提供了另一种整理视角——将文章、更新日志与社区讨论按主题域组织，而非单纯按时间排序。
+        </div>
+
+        <p>
+            索引工作本身也带有档案学的趣味。一份详尽的游戏资料集，通常包含概念草图、废弃代码片段、发行时的宣传措辞，以及多年后媒体重访的评论。这些文档之间常常互相矛盾，但矛盾本身正是理解作品复杂性的入口。理想的资料库不是一座静止的陈列馆，而是一张不断被修订的注释地图。
+        </p>
+
+        <p style="text-indent: 0; margin-top: 2rem;">
+            <span style="background: #e8dfd2; padding: 0.1rem 0.6rem; border-radius: 30px; font-size: 0.8rem; letter-spacing: 2px;">⏺ 延伸</span>
+            — 部分研究者将游戏更新补丁视为一种“文本变异”，每一次版本更迭都改写了作品的阅读方式。索引者需要同时面对多个版本的正典与边角料，这项工作有点像修复一座不断生长的图书馆。
+        </p>
+    </div>
+
+    <!-- 附加 FAQ 摘要 — 以杂志 FAQ 短栏形式出现 -->
+    <div style="margin: 2.5rem 0 1.2rem; background: #f6f0e6; border-radius: 30px; padding: 1.2rem 1.6rem; border: 1px solid #ddd3c2;">
+        <div style="font-family: Inter, sans-serif; font-size: 0.7rem; letter-spacing: 2px; color: #8b7b64; margin-bottom: 0.6rem;">▸ 常见索引问题摘要</div>
+        <ul style="list-style: none; padding: 0; font-size: 0.92rem; color: #3d352b;">
+            <li style="margin-bottom: 0.4rem;">· 如何分辨官方资料与同人考据？—— 优先参考开发版本库与媒体首发评测时间。</li>
+            <li style="margin-bottom: 0.4rem;">· 索引时遇到矛盾信息怎么办？—— 保留所有版本并标注来源语境，不强行统一。</li>
+            <li>· 最容易被忽略的资料类型？—— 发行商内部备忘录、游戏说明书早期的打印稿。</li>
+        </ul>
+    </div>
+
+    <!-- 页尾访问提示 + 链接 -->
+    <div class="footer-visit">
+        <div class="visit-line">
+            → 资料索引持续更新 · 您可浏览 <a href="https://aiyouxim.com.cn">爱游戏</a> 获取更多整理笔记
+        </div>
+        <div class="footer-meta">
+            · 杂志专题式索引 · 编号 3d5effdd6228d1cd ·
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
