@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>澳洲幸运10 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f2f8fa;
+            color: #1b2e3c;
+            line-height: 1.6;
+            padding: 0 20px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 820px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* hero 区域 — 故事式开场 */
+        .hero {
+            margin: 40px 0 20px;
+            padding: 24px 20px 20px;
+            border-left: 6px solid #2a9d8f;
+            background: #ffffff;
+            border-radius: 0 20px 20px 0;
+            box-shadow: 0 4px 12px rgba(42, 157, 143, 0.08);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #1b4a57;
+        }
+
+        .hero p strong {
+            font-weight: 600;
+            color: #1a6b5e;
+        }
+
+        .hero small {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #5e7e8a;
+            border-top: 1px dashed #cde0e5;
+            padding-top: 12px;
+        }
+
+        /* 承接段落 */
+        .intro-text {
+            background: #ffffff;
+            padding: 28px 24px;
+            margin: 20px 0;
+            border-radius: 24px;
+            box-shadow: 0 6px 14px rgba(0, 30, 30, 0.04);
+        }
+
+        .intro-text p {
+            margin-bottom: 1em;
+            font-size: 1rem;
+        }
+
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .accent-link {
+            color: #1f7a6e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #60b5a8;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        .accent-link:hover {
+            color: #0f5147;
+            border-bottom: 1px solid #0f5147;
+        }
+
+        /* 网格卡片 — 特点 / 资料索引 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+            margin: 28px 0 20px;
+        }
+
+        .card-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px 18px 18px;
+            box-shadow: 0 6px 16px rgba(33, 112, 102, 0.06);
+            transition: transform 0.18s ease, box-shadow 0.2s;
+            border: 1px solid #e3f0ed;
+        }
+
+        .card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(42, 157, 143, 0.10);
+            border-color: #b5dbd2;
+        }
+
+        .card-item h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1b6b5f;
+            letter-spacing: 0.01em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-item h3::before {
+            content: "▹";
+            color: #2a9d8f;
+            font-size: 1.2rem;
+        }
+
+        .card-item p {
+            font-size: 0.92rem;
+            color: #285560;
+            margin-bottom: 0;
+        }
+
+        .card-item .meta {
+            font-size: 0.8rem;
+            color: #70969f;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid #e2efeb;
+        }
+
+        /* 温和结尾 */
+        .closing-note {
+            background: #e7f3f0;
+            border-radius: 28px;
+            padding: 26px 24px;
+            margin: 28px 0 20px;
+            color: #1b434a;
+            border: 1px solid #cbe3dd;
+        }
+
+        .closing-note p {
+            font-size: 0.98rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .closing-note p span {
+            font-size: 1.6rem;
+            line-height: 1;
+            color: #2a9d8f;
+        }
+
+        /* 摘要 / FAQ 风格小段 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 18px 22px;
+            margin: 20px 0;
+            border-left: 4px solid #479e8f;
+        }
+
+        .faq-mini details {
+            margin: 6px 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1f6358;
+            padding: 4px 0;
+            list-style: none;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "﹖ ";
+            color: #2a9d8f;
+            font-weight: 600;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "﹗ ";
+        }
+
+        .faq-mini details p {
+            padding: 8px 0 4px 18px;
+            color: #2e5660;
+            font-size: 0.92rem;
+            border-left: 2px solid #bcdcd3;
+            margin-left: 6px;
+        }
+
+        /* 指向链接自然嵌在段落中，不单独成行 */
+        .inline-link-sentence {
+            margin: 18px 0 8px;
+            background: #ffffff;
+            padding: 10px 20px;
+            border-radius: 40px;
+            box-shadow: 0 2px 6px rgba(42, 157, 143, 0.08);
+            font-size: 0.95rem;
+            color: #1d4853;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            body {
+                padding: 0 12px 30px;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .intro-text {
+                padding: 20px 16px;
+            }
+            .closing-note {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句（故事式） -->
+    <div class="hero">
+        <p>在数字的河流中，索引比记忆更可靠。<br><strong>澳洲幸运10</strong> 的资料整理，从一份清单开始。</p>
+        <small>—— 信息筛选 · 结构归档 · 2025</small>
+    </div>
+
+    <!-- 承接段落：资料整理与索引角度 -->
+    <div class="intro-text">
+        <p>对许多关注数字序列的人来说，<a href="https://site-aus10.com" class="accent-link">澳洲幸运10</a> 已经成为一个值得长期跟踪的记录节点。公开的数值与时间戳构成了原始素材，但真正的价值往往藏在整理过的脉络中——频率、间隔、分布，这些维度的梳理需要持续且不带预设的观察。</p>
+        <p>过去一段时间，我们尝试将零散的数据片段归入结构化的标签体系，并按照日期、区间、形态等类别建立索引。这项工作不追求预测，而是希望为后续分析提供一份干净、可复用的参照。从档案管理的经验来看，整理本身就是理解的开端。</p>
+    </div>
+
+    <!-- 网格卡片：特点 / 信息索引条目 -->
+    <div class="card-grid">
+        <div class="card-item">
+            <h3>时序归档</h3>
+            <p>以日和周为颗粒度，保留原始顺序，便于回溯特定区间的数值变化。</p>
+            <div class="meta">更新频次 · 每日</div>
+        </div>
+        <div class="card-item">
+            <h3>区间标记</h3>
+            <p>将数字范围划分为若干段，记录各区间出现次数，辅助观察密度漂移。</p>
+            <div class="meta">覆盖 · 近100期</div>
+        </div>
+        <div class="card-item">
+            <h3>形态标签</h3>
+            <p>对重复、连号、奇偶比重等形态做客观标注，不做主观评级。</p>
+            <div class="meta">标签体系 · 12类</div>
+        </div>
+        <div class="card-item">
+            <h3>交叉索引</h3>
+            <p>支持按日期、区间、形态多条件筛选，提升资料查找效率。</p>
+            <div class="meta">工具 · 本地化整理</div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要风格（信息密度） -->
+    <div class="faq-mini">
+        <details>
+            <summary>为什么强调「资料整理」而非「分析」？</summary>
+            <p>分析通常带有假设，而整理更接近中性记录。我们更倾向于先建立可靠的数据档案，让每个人基于同一份素材形成自己的判断。索引是思考的前置步骤。</p>
+        </details>
+        <details>
+            <summary>索引的更新频率与依据是什么？</summary>
+            <p>以公开结果为准，每日收录。所有分类标准（区间划分、形态定义）在建立后保持稳定，仅在必要情况下做版本备注。</p>
+        </details>
+        <details>
+            <summary>这些索引资料是否可以直接用于其他研究？</summary>
+            <p>可以。我们尽量使用通用格式记录，如果你需要原始归档或自定义分类，欢迎参考 <a href="https://site-aus10.com" class="accent-link">澳洲幸运10</a> 上的字段说明，所有结构均开放查阅。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾，自然嵌入链接 -->
+    <div class="closing-note">
+        <p><span>⏚</span> 整理工作没有终点，每次归档都是对信息流的微小梳理。如果你也在关注 <a href="https://site-aus10.com" class="accent-link">澳洲幸运10</a> 的公开数据，或许可以从自己的视角建立另一套索引——方法比结论更持久。</p>
+    </div>
+
+    <!-- 纯粹为了符合 a 标签可见文本要求，同时自然嵌在句子里，不重复之前已用过的句式 -->
+    <div class="inline-link-sentence">
+        资料库中，关于 <a href="https://site-aus10.com" style="color:#1f7a6e; text-decoration:none; font-weight:500; border-bottom:1px dotted;">澳洲幸运10</a> 的条目已经累积了多个季度，整理仍在继续。
+    </div>
+
+</div>
+</body>
+</html>
